@@ -77,4 +77,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table View
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [nameArray count];
+}
+
 @end
