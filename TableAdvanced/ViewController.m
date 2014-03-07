@@ -25,7 +25,7 @@
                      @"イチロー",
                      @"宇多田ヒカル",
                      @"エジソン",
-                     @"おぎやはぎ",
+                     @"おはぎ",
                      @"カトパン",
                      @"桐谷美玲",
                      @"くまモン",
@@ -66,7 +66,7 @@
                          [UIImage imageNamed:@"kiritani_mirei.jpg"],
                          [UIImage imageNamed:@"kumamon.jpg"],
                          [UIImage imageNamed:@"kendo_kobayashi.jpg"],
-                         [UIImage imageNamed:@"komori_yuta.jpg"],
+                         [UIImage imageNamed:@"komori_yuta.jpeg"],
                          nil];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -94,9 +94,20 @@
     }
     cell.textLabel.text         =   [nameArray objectAtIndex:indexPath.row];
     cell.imageView.image        =   [imageArray objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text   =   [jobArray objectAtIndex:indexPath.row];
+    //cell.detailTextLabel.text   =   [jobArray objectAtIndex:indexPath.row];
     
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *talentName    =   [nameArray objectAtIndex:indexPath.row];
+    NSString *profile       =   [profileArray objectAtIndex:indexPath.row];
+    UIAlertView *alertView  =   [[UIAlertView alloc]initWithTitle:talentName
+                                                          message:profile
+                                                         delegate:self
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 @end
