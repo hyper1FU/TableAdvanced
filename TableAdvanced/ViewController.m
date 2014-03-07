@@ -84,4 +84,19 @@
     return [nameArray count];
 }
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier    =   @"Cell";
+    UITableViewCell *cell       =   [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell    =   [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault
+                                          reuseIdentifier:cellIdentifier];
+    }
+    cell.textLabel.text         =   [nameArray objectAtIndex:indexPath.row];
+    cell.imageView.image        =   [imageArray objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text   =   [jobArray objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
 @end
